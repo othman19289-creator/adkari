@@ -1,0 +1,110 @@
+        /* 1. المتغيرات والألوان المستخدمة في الصورة */
+        :root {
+            --bg-main: #f0fff4; /* لون الخلفية الفاتح جداً */
+            --bg-card: #ebf8ff; /* لون الصندوق الداخلي الأزرق الفاتح */
+            --border-card: #bee3f8; /* لون حدود الصندوق */
+            --emerald-600: #059669; /* لون الأزرار الأخضر */
+            --emerald-700: #047857; /* الأخضر الغامق للهيدر وللتفاعل */
+            --amber-500: #ff9800; /* لون زر القرآن الكريم البرتقالي */
+            --font-main: 'Amiri', serif;
+        }
+
+        /* 2. التصفير العام */
+        *, ::after, ::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            font-family: var(--font-main);
+            min-height: 100vh;
+        }
+
+        /* 3. الهيدر (الشريط العلوي) */
+        header {
+            background-color: var(--emerald-700);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header span {
+            color: #a7f3d0;
+            font-size: 0.875rem;
+        }
+
+        /* 4. الحاوية الرئيسية والصندوق */
+        main {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .container-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* 5. شبكة الأزرار */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 أعمدة كما في الصورة */
+            gap: 12px;
+        }
+
+        /* تنسيق الأزرار الخضراء */
+        .btn {
+            background-color: var(--emerald-600);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn:hover {
+            background-color: var(--emerald-700);
+        }
+
+        /* زر القرآن الكريم (يأخذ العرض كاملاً) */
+        .btn-quran {
+            grid-column: span 3;
+            background-color: var(--amber-500);
+            margin-top: 5px;
+        }
+
+        .btn-quran:hover {
+            background-color: #fb8c00;
+        }
+
+        /* التوافق مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* عمودين فقط في الجوال */
+            }
+            .btn-quran {
+                grid-column: span 2;
+            }
+        }
